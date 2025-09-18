@@ -7,9 +7,11 @@ function addProductToCart(product) {
   const storedCardItems = localStorage.getItem('so-cart');
   let cartItems = JSON.parse(storedCardItems);
 
+  /**This block of code allow to verify if localStorage is empty and ADD a new Objet Array */
   if (cartItems === null) {
     const objString = '[' + JSON.stringify(product) + ']';
     localStorage.setItem('so-cart', objString);
+    /**Else ADD a new item at the end of Array */
   } else {
     cartItems.push(product);
     localStorage.setItem('so-cart', JSON.stringify(cartItems));
